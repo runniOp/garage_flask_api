@@ -1,0 +1,39 @@
+# Virtual environment
+venv/
+.env
+*.env
+
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Log files
+*.log
+
+# Cache
+*.cache/
+.cache/
+*.pyc
+*.pyo
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+
+# MacOS files
+.DS_Store
+
+# Windows files
+Thumbs.db
+
+# Others
+*.bak
+*.tmp
