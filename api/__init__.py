@@ -16,7 +16,9 @@ api = Api(
 # Import and register sub-Blueprints (namespaces)
 from .client import clients_ns
 from .employee import employees_ns
+from .work import works_ns
 
 # Add namespaces to the Swagger documentation and API
 api.add_namespace(clients_ns, path='/client')  # Routes for client operations
 api.add_namespace(employees_ns, path='/employee')  # Routes for employee operations
+api.add_namespace(works_ns, path='/work')  # Routes for work operations
