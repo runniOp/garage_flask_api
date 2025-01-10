@@ -1,6 +1,7 @@
 import logging
 from utils.database import db
 from models.task import Task
+from datetime import datetime
 
 logger = logging.getLogger(__name__)
 
@@ -79,7 +80,6 @@ def create_task(description, end_date, start_date, status):
         logger.error(f"Error creating task: {e}")
         return {"error": "Internal Server Error"}
 
-
 def update_task(task_id, description, employee_id, end_date, start_date, status, work_id):
     """
     Update an existing task.
@@ -125,6 +125,7 @@ def update_task(task_id, description, employee_id, end_date, start_date, status,
         db.session.rollback()
         logger.error(f"Error updating task {task_id}: {e}")
         return {"error": "Internal Server Error"}
+    
 def delete_task(task_id):
     """
     Delete a task.

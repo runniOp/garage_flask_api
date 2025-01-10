@@ -1,5 +1,5 @@
 from utils.database import db
-
+from datetime import datetime
 
 # Model definition for the 'Task' table
 class Task(db.Model):
@@ -20,16 +20,16 @@ class Task(db.Model):
     # Define columns for the table
     task_id = db.Column(db.Integer, primary_key=True)  # Unique identifier for each task
     created_at = db.Column(db.DateTime, server_default=db.func.now())  # Auto-generated timestamp
-    description = db.Column(db.String(200), nullable=False)  # task description
-    employee_id = db.Column(db.Integer, primary_key=False)  # identifier of employee table
-    end_date = db.Column(db.Date, nullable=True)  # task end date
-    start_date = db.Column(db.Date, nullable=False)  # task start date, cannot be null
-    status = db.Column(db.String(80), nullable=False)  # task status
-    work_id = db.Column(db.Integer, primary_key=False)  # identifier of work table
+    description = db.Column(db.String(255), nullable=False)  # task description
+    employee_id = db.Column(db.Integer, nullable=False)  # identifier of employee table
+    end_date = db.Column(db.DateTime, nullable=True)  # task end date
+    start_date = db.Column(db.DateTime, nullable=False)  # task start date, cannot be null
+    status = db.Column(db.String(50), nullable=False)  # task status
+    work_id = db.Column(db.Integer, nullable=False)  # identifier of work table
     
     def __repr__(self):
         """
         String representation of the task object.
         Useful for debugging and logging purposes.
         """
-        return f"<task {self.description}>"
+        return f"<task {self.task_id}>"

@@ -16,7 +16,7 @@ class Setting(db.Model):
     # Define columns for the table
     setting_id = db.Column(db.Integer, primary_key=True)  # Unique identifier for each setting
     key_name = db.Column(db.String(80), unique=True, nullable=False)  # setting name, must be unique
-    updated_at = db.Column(db.DateTime, onupdate=db.func.now())  # Auto-generated timestamp
+    updated_at = db.Column(db.DateTime, server_default=db.func.now())  # Auto-generated timestamp
     value = db.Column(db.String(200), nullable=False)  # setting value
     
     def __repr__(self):
@@ -24,4 +24,4 @@ class Setting(db.Model):
         String representation of the setting object.
         Useful for debugging and logging purposes.
         """
-        return f"<setting {self.key_name}>"
+        return f"<Setting {self.key_name}: {self.value}>"
